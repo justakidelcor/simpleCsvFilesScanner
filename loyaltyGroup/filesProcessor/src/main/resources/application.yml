@@ -1,0 +1,22 @@
+info:
+  build:
+    version: ${version}
+
+local:
+  timezone: Europe/Moscow
+
+server:
+  port: 9324
+
+folder:
+  path: C:\Users\aabta\Desktop\in
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    password: postgres
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: validate
