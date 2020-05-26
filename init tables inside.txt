@@ -1,0 +1,16 @@
+CREATE TABLE IF NOT EXISTS record (
+  id bigserial,
+  transactional_id varchar(45) NOT NULL,
+  amount varchar(450) NOT NULL,
+  user_id varchar(60) NOT NULL,
+  created_when timestamp NOT NULL,
+  updatedate timestamp not null,
+  status varchar(100) NOT null,
+  PRIMARY KEY (id)
+)
+
+CREATE TABLE IF NOT EXISTS checked_files (
+  id bigserial,
+  file_name varchar(100) NOT NULL,
+  PRIMARY KEY (id)
+)

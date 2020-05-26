@@ -15,21 +15,21 @@ public interface RecordRepository extends CrudRepository<Record, Long> {
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE record SET status = :status WHERE transactional_id = :transactional_id", nativeQuery = true)
+    @Query(value = "UPDATE record SET status = ?1 WHERE transactional_id = ?2", nativeQuery = true)
     void UpdateRecord(@Param("transactional_id") String transactional_id, @Param("status") String status);
 
-    List<Record> getAllByUser_id(String user_id);
+    List<Record> findAllByUserId(@Param("user_id")String user_id);
 
-    List<Record> getAllByStatus(String status);
+    List<Record> getAllByStatus(@Param("status") String status);
 
-    Record getByTransactional_id(String transactional_id);
+    Record getByTransactionalId(@Param("transactional_id") String transactional_id);
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT DISTINCT INTO public.checked_files (file_name) VALUES (:file_name)", nativeQuery = true)
+    @Query(value = "INSERT INTO checked_files (file_name) VALUES (?1)", nativeQuery = true)
     void addCheckedFiles(@Param("file_name") String file_name);
 
-    @Query(value = "SELECT DISTINCT FROM public.checked_files WHERE file_name = :file_name", nativeQuery = true)
-    boolean checkIfFileNameIsAlreadyThere(@Param("file_name")String file_name);
+    @Query(value = "select * from public.checked_files where file_name = ?1", nativeQuery = true)
+    String checkIfFileNameIsAlreadyThere(@Param("file_name") String file_name);
 
 }

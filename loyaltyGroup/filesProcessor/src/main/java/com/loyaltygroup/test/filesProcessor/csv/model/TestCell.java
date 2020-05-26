@@ -1,33 +1,28 @@
 package com.loyaltygroup.test.filesProcessor.csv.model;
 
 import com.opencsv.bean.CsvBindByName;
-import com.opencsv.bean.CsvBindByPosition;
 
-import java.io.Serializable;
-import java.util.Date;
-
-public class RecordCsv implements Serializable {
-
-    @CsvBindByPosition(position = 0, required = true)
+public class TestCell {
+    @CsvBindByName(column = "transactional_id", required = true)
     private String transactional_id;
-    @CsvBindByPosition(position = 1, required = true)
+    /*@CsvBindByName(column = "amount", required = true)
     private String amount;
-    @CsvBindByPosition(position = 2, required = true)
+    @CsvBindByName(column = "user_id", required = true)
     private String user_id;
-    @CsvBindByPosition(position = 3, required = true)
+    @CsvBindByName(column = "created_when", required = true)
     private String created_when;
-    @CsvBindByPosition(position = 4, required = true)
-    private String status;
+    @CsvBindByName(column = "status", required = true)
+    private String status;*/
 
-    public RecordCsv() {
+    public TestCell() {
     }
 
-    public RecordCsv(String transactional_id, String amount, String user_id, String created_when, String status) {
+    public TestCell(String transactional_id) {
         this.transactional_id = transactional_id;
-        this.amount = amount;
+        /*this.amount = amount;
         this.user_id = user_id;
         this.created_when = created_when;
-        this.status = status;
+        this.status = status;*/
     }
 
     public String getTransactional_id() {
@@ -38,7 +33,7 @@ public class RecordCsv implements Serializable {
         this.transactional_id = transactional_id;
     }
 
-    public String getAmount() {
+    /*public String getAmount() {
         return amount;
     }
 
@@ -68,12 +63,10 @@ public class RecordCsv implements Serializable {
 
     public void setStatus(String status) {
         this.status = status;
-    }
+    }*/
 
     @Override
     public String toString() {
-        return "{" + transactional_id + "::" + amount + "::" + user_id + "::" + created_when + "::" + status + "}";
+        return "{" + transactional_id + "}";
     }
-
-
 }

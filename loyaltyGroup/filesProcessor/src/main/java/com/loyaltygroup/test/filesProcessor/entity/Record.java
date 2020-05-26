@@ -30,11 +30,11 @@ public class Record implements Serializable {
     @JsonSerialize(using = CustomLocalDateTimeSerializer.class)
     private LocalDateTime updateDate;
     @Column(name="transactional_id")
-    private String transactional_id;
+    private String transactionalId;
     @Column(name="amount")
     private String amount;
     @Column(name="user_id")
-    private String user_id;
+    private String userId;
     @Column(name="status")
     private String status;
 
@@ -62,12 +62,12 @@ public class Record implements Serializable {
         this.updateDate = updateDate;
     }
 
-    public String getTransactional_id() {
-        return transactional_id;
+    public String getTransactionalId() {
+        return transactionalId;
     }
 
-    public void setTransactional_id(String transactional_id) {
-        this.transactional_id = transactional_id;
+    public void setTransactionalId(String transactionalId) {
+        this.transactionalId = transactionalId;
     }
 
     public String getAmount() {
@@ -78,12 +78,12 @@ public class Record implements Serializable {
         this.amount = amount;
     }
 
-    public String getUser_id() {
-        return user_id;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getStatus() {
@@ -100,9 +100,9 @@ public class Record implements Serializable {
                 "id=" + id +
                 ", created_when=" + created_when +
                 ", updateDate=" + updateDate +
-                ", transactional_id='" + transactional_id + '\'' +
+                ", transactional_id='" + transactionalId + '\'' +
                 ", amount='" + amount + '\'' +
-                ", user_id='" + user_id + '\'' +
+                ", user_id='" + userId + '\'' +
                 ", status='" + status + '\'' +
                 '}';
     }
